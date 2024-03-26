@@ -39,18 +39,18 @@ export const accessRequest: T = async <T>(options: {
 	return response as AxiosResponse<T>
 }
 
-// export const filesRequest: T = async <T>(options: {
-// 	method: 'GET' | 'POST' | 'PUT' | 'DELETE'
-// 	url: string
-// 	body?: any
-// }): Promise<AxiosResponse<T>> => {
-// 	const response = await instance({
-// 		...options,
-// 		data: options.body,
-// 		headers: {
-// 			'Content-Type': 'multipart/form',
-// 		},
-// 	})
+export const filesRequest: T = async <T>(options: {
+	method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+	url: string
+	body?: any
+}): Promise<AxiosResponse<T>> => {
+	const response = await instance({
+		...options,
+		data: options.body,
+		headers: {
+			'Content-Type': 'multipart/form',
+		},
+	})
 
-// 	return response as AxiosResponse<T>
-// }
+	return response as AxiosResponse<T>
+}

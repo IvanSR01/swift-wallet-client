@@ -1,0 +1,69 @@
+.wrapper {
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.wrapper {
+	--primary-color: #fff;
+	--hovered-color: rgb(99, 89, 233);
+	position: relative;
+	display: flex;
+	font-weight: 600;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.wrapper p {
+	margin: 0;
+	position: relative;
+	color: var(--primary-color);
+	transition: 0.3s ease-out;
+}
+
+.wrapper::after {
+	position: absolute;
+	content: "";
+	width: 0;
+	left: 0;
+	bottom: 10px;
+	background: var(--hovered-color);
+	height: 2px;
+	transition: 0.3s ease-out;
+}
+
+.wrapper p::before {
+	position: absolute;
+	/*   box-sizing: border-box; */
+	width: 0%;
+	inset: 0;
+	color: var(--hovered-color);
+	overflow: hidden;
+	transition: 0.3s ease-out;
+}
+
+.wrapper:hover::after {
+	width: 100%;
+}
+
+.wrapper:hover p::before {
+	width: 100%;
+}
+.wrapper:hover p {
+	color: var(--hovered-color);
+}
+
+.wrapper:hover svg {
+	transform: translateX(4px);
+	color: var(--hovered-color);
+}
+
+.wrapper svg {
+	color: var(--primary-color);
+	transition: 0.2s;
+	position: relative;
+	width: 15px;
+	transition-delay: 0.2s;
+}
