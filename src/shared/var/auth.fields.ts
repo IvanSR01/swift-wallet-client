@@ -46,6 +46,42 @@ const registerFields: TypeAuthFields[] = [
       message: "Неверный формат почты",
     },
     min: 5,
+		placeholder: "E-mail"
+  },
+  {
+    name: "name",
+    required: "Поле обязательно для заполнения",
+    pattern: {
+      value: /.*/,
+      message: "",
+    },
+    min: 3,
+    max: 30,
+    placeholder: "Имя",
+  },
+  {
+    name: "password",
+    required: "Поле обязательно для заполнения",
+    pattern: {
+      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+      message:
+        "Пароль должен содержать минимум 8 символов, хотя бы одну строчную и заглавную букву и цифру",
+    },
+    type: "password",
+    min: 8,
+    placeholder: "Пароль",
+  },
+  {
+    name: "confirm",
+    required: "Поле обязательно для заполнения",
+    pattern: {
+      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+      message:
+        "Пароль должен содержать минимум 8 символов, хотя бы одну строчную и заглавную букву и цифру",
+    },
+    type: "password",
+    min: 8,
+    placeholder: "Подтверждения пароля",
   },
 ];
 

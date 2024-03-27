@@ -1,7 +1,7 @@
 import { classicRequest } from "@/api/request.api";
 import { saveTokens } from "@/shared/cookie/tokens.cookie";
 import { IUser } from "@/shared/interfaces/user.interface";
-import { TypeLogin } from "@/shared/types/auth.type";
+import { TypeLogin, TypeRegister } from "@/shared/types/auth.type";
 
 class AuthService {
   private saveTokensToCookies = (data: IUser | null): void => {
@@ -25,13 +25,20 @@ class AuthService {
 
     return data;
   }
-  async register({ login, password }: TypeLogin): Promise<IUser | null> {
+  async register({
+    email,
+    name,
+    password,
+    confirm,
+  }: TypeRegister): Promise<IUser | null> {
     const { data } = await classicRequest<IUser>({
       method: "POST",
       url: "/auth/register",
       body: {
-        login,
+        email,
+        name,
         password,
+        confirm,
       },
     });
     this.saveTokensToCookies(data);

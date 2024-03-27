@@ -2,7 +2,7 @@ import { useError } from '@/hooks/useError'
 import { getTokens } from '@/shared/cookie/tokens.cookie'
 import axios from 'axios'
 
-export const apiUrl: string = 'http://localhost:4200/api'
+export const apiUrl: string = 'http://localhost:4200/api/v1'
 export const uploadsUrl: string = 'http://localhost:4200'
 const instance = axios.create({
 	baseURL: `${apiUrl}`,

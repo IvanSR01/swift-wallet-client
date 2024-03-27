@@ -3,4 +3,6 @@ export type TypeInputProps = {
 	helperText?: string;
 	onChange?: any;
 	isDebounce?: boolean
+	type?: string
+	value?: string
 };

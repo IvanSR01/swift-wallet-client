@@ -1,12 +1,15 @@
+"use client";
 import { FC } from "react";
-import styles from "./Login.module.scss";
+import styles from "../Auth.module.scss";
 import Input from "@/shared/ui/Input/Input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Loader from "@/shared/ui/loader/Loader";
 import { useMutation } from "@tanstack/react-query";
-import authService from "@/services/auth.service";
+import authService from "@/services/auth-service/auth.service";
 import { TypeLogin } from "@/shared/types/auth.type";
 import { loginFields } from "@/shared/var/auth.fields";
+import AuthCustomLink from "@/components/layouts/auth-layout/auth-custom-link/AuthCustomLink";
+import Link from "next/link";
 
 const Login: FC = () => {
   const { isPending, mutate } = useMutation({
@@ -35,8 +38,8 @@ const Login: FC = () => {
             {loginFields.map((item, i) => (
               <Input
                 key={i}
+                type={item.type}
                 placeholder={item.placeholder}
-                // type={item.type ? item.type : 'text'}
                 {...register(item.name as keyof TypeLogin, {
                   required: "Поле обязательно для заполнения",
                   minLength: item.min
@@ -64,6 +67,9 @@ const Login: FC = () => {
               <p>ВОЙТИ</p>
             </button>
           </form>
+          <div className={styles.link}>
+            <p>Нет аккаунта ? </p> <Link href="/auth/register">Регистрация</Link>
+          </div>
         </>
       )}
     </div>

@@ -1,0 +1,60 @@
+.wrapper {
+	margin-top: 20px;
+	position: relative;
+	max-width: 1240px;
+	width: 90vw;
+	.heading {
+		display: flex;
+		justify-content: space-between;
+		font-size: 20px;
+		@media (max-width: 600px) {
+			font-size: 16px;
+		}
+		font-weight: bold;
+		color: rgb(221, 221, 227);
+		cursor: pointer;
+		h3 {
+			margin-left: 5px;
+			color: rgb(99, 89, 233);
+			text-decoration: underline;
+		}
+	}
+	.content {
+		position: absolute;
+		top: 40px;
+		right: 0;
+		background-color: rgb(221, 221, 227);
+		color: rgb(99, 89, 233);
+		width: 350px;
+		@media (max-width: 600px) {
+			width: 300px;
+		}
+		border-radius: 10px;
+		padding: 10px;
+		.items {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			li {
+				width: 350px;
+				font-weight: bold;
+				font-size: 20px;
+				@media (max-width: 600px) {
+					font-size: 16px;
+					width: 300px;
+				}
+				padding: 15px 30px;
+				cursor: pointer;
+				border-radius: 10px;
+			}
+			li:hover {
+				background-color: rgb(99, 89, 233);
+				color: rgb(221, 221, 227);
+			}
+			.active {
+				background-color: rgb(99, 89, 233);
+				color: rgb(221, 221, 227);
+			}
+		}
+	}
+}

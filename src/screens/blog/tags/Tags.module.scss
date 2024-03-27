@@ -1,0 +1,46 @@
+.wrapper {
+  overflow-x: scroll;
+  max-width: 1240px;
+  .tags {
+    display: flex;
+    gap: 20px;
+    .tag {
+			white-space: nowrap;
+      cursor: pointer;
+      padding: 10px 30px;
+      min-width: 100px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(99, 89, 233);
+      color: rgb(221, 221, 227);
+      font-weight: bold;
+			transition: background 0.5s ease;
+    }
+		.tag:hover {
+			background: rgb(205, 205, 229);
+      color: rgb(99, 89, 233);
+		}
+    .active {
+      background: rgb(205, 205, 229);
+      color: rgb(99, 89, 233);
+    }
+  }
+}
+.wrapper {
+  scrollbar-width: none;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.wrapper::-ms-scrollbar {
+  display: none;
+}

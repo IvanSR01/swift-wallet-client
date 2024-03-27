@@ -1,17 +1,5 @@
-import Link from 'next/link'
+import Auth from "@/screens/auth/Auth";
 
 export default function Page() {
-	return (
-		<>
-			<div>
-				<p className='flex items-center gap-2'>
-					Auth {'->'} <Link href={'/register'}>Register</Link> {'->'} Page
-				</p>
-				or
-				<p className='flex items-center gap-2'>
-					Auth {'->'} <Link href={'/login'}>Login</Link> {'->'} Page
-				</p>
-			</div>
-		</>
-	)
+  return 	<Auth type='register'/>;
 }

@@ -3,17 +3,17 @@ import styles from "./Input.module.scss";
 import { TypeInputProps } from "./Input.type";
 import debounce from "lodash.debounce";
 const Input: FC<TypeInputProps> = forwardRef(
-  (
-    { placeholder, helperText, ...rest},
-    ref: any
-  ) => {
+  ({ placeholder, helperText, onChange, value, type, ...rest }, ref: any) => {
     return (
       <div className={styles.group}>
         <input
-					ref={ref}
+          type={type}
+          ref={ref}
           className={styles.input}
+					onChange={onChange}
+					value={value}
           placeholder={placeholder}
-					{...rest}
+          {...rest}
         />
         {helperText && <label>{helperText}</label>}
       </div>
