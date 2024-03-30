@@ -1,0 +1,16 @@
+.wrapper {
+	display: flex;
+	padding: 20px 0px;
+	gap: 20px;
+	@media (max-width: 1200px) {
+		gap: 0;
+		justify-content: center;
+	}
+	.content {
+		// width: 80vw;
+		width: 80%;
+		@media (max-width: 1200px) {
+			width: 90vw;
+		}
+	}
+}

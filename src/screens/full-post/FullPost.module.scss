@@ -1,0 +1,60 @@
+.wrapper {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	.content {
+		background-color: #262250;
+		width: 90vw;
+		max-width: 1240px;
+		border-radius: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		.img {
+			border-radius: 10px;
+			overflow: hidden;
+			width: 35%;
+			@media (max-width: 800px) {
+				width: 100%;
+			}
+			img {
+				height: 220px;
+				@media (max-width: 800px) {
+					height: 300px;
+				}
+				width: 100%;
+			}
+		}
+		.postInfo {
+			width: 65%;
+			padding: 20px;
+			@media (max-width: 800px) {
+				width: 100%;
+			}
+			.header {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				@media (max-width: 800px) {
+					width: 82vw;
+				}
+				.date {
+					color: rgb(159, 154, 217);
+					font-size: 16px;
+				}
+			}
+			h2 {
+				font-weight: bold;
+				font-size: 30px;
+			}
+		}
+		.postContent {
+			width: 100%;
+			padding: 20px;
+			font-size: 20px;
+			text-align: justify;
+			line-height: 30px;
+		}
+	}
+}

@@ -4,6 +4,7 @@ import img from '../../../../../public/213.png'
 import styles from './Post.module.scss'
 import { format } from 'date-fns'
 import Link from 'next/link'
+import MinTags from '@/components/min-tags/MinTags'
 const Post: FC<IPostProps> = ({ id, title, content, dateCreate, tags }) => {
 	return (
 		<div className={styles.post}>
@@ -12,13 +13,7 @@ const Post: FC<IPostProps> = ({ id, title, content, dateCreate, tags }) => {
 			</div>
 			<div className={styles.info}>
 				<div className={styles.header}>
-					<div className={styles.tags}>
-						{tags.map((item, i) => (
-							<Link href={`/blog/${item}`} key={i}>
-								<span>{item}</span>
-							</Link>
-						))}
-					</div>
+					<MinTags tags={tags}/>
 					<p className={styles.date}>
 						{format(new Date(dateCreate), 'dd MMMM yyyy')}
 					</p>

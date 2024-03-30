@@ -1,18 +1,27 @@
 'use client'
-import { FC } from "react";
-import styles from "../Auth.module.scss";
-import { useMutation } from "@tanstack/react-query";
+import { useAppDispatch } from "@/hooks/useActions";
 import authService from "@/services/auth-service/auth.service";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { TypeRegister } from "@/shared/types/auth.type";
+import Input from "@/shared/ui/Input/Input";
 import Loader from "@/shared/ui/loader/Loader";
 import { registerFields } from "@/shared/var/auth.fields";
-import Input from "@/shared/ui/Input/Input";
-import { TypeRegister } from "@/shared/types/auth.type";
+import { setUser } from "@/store/slice/user.slice";
+import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import styles from "../Auth.module.scss";
 
 const Register: FC = () => {
+	const { push } = useRouter()
+	const dispatch = useAppDispatch()
   const { isPending, mutate } = useMutation({
     mutationFn: (data: TypeRegister) => authService.register(data),
+		onSuccess: (data) => {
+			dispatch(setUser(data))
+			push('/dashboard')
+		}
   });
   const {
     register,

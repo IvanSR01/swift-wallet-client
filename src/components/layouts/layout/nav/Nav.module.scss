@@ -1,0 +1,83 @@
+.wrapper {
+	@media (max-width: 1200px) {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #0000003c;
+	}
+	.nav {
+		@media (max-width: 1200px) {
+			position: fixed;
+		}
+		top: 0px;
+		left: 0;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+		background-color: #262250;
+		padding: 30px 20px 20px 40px;
+		max-width: 400px;
+		min-width: 300px;
+		width: 18vw;
+		height: 90vh;
+		@media (max-width: 1200px) {
+			height: 100vh;
+			width: 350px;
+		}
+		h2 {
+			cursor: pointer;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		box-shadow: 0 0 40px #00000007;
+		.links {
+			margin-top: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			.link {
+				padding: 10px 20px;
+				border-radius: 10px;
+				width: 90%;
+				font-size: 20px;
+				background-color: rgb(78, 70, 181);
+				border: 3px solid transparent;
+				font-weight: bold;
+				transition: background-color 0.3s ease-out;
+				cursor: pointer;
+			}
+			.link:hover {
+				background-color: transparent;
+				color: rgb(78, 70, 181);
+				border-color: rgb(78, 70, 181);
+			}
+			.active {
+				background-color: transparent;
+				color: rgb(78, 70, 181);
+				border-color: rgb(78, 70, 181);
+			}
+		}
+		.logout {
+			position: absolute;
+			bottom: 50px;
+			color: #868686;
+			cursor: pointer;
+		}
+	}
+}
+.open {
+	background-color: #32304c;
+	border-radius: 500px;
+	height: 60px;
+	width: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-weight: bold;
+	cursor: pointer;
+	position: fixed;
+	bottom: 100px;
+	right: 100px;
+}

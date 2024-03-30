@@ -1,4 +1,5 @@
 import { useError } from '@/hooks/useError'
+import authService from '@/services/auth-service/auth.service'
 import { getTokens } from '@/shared/cookie/tokens.cookie'
 import axios from 'axios'
 
@@ -12,16 +13,16 @@ const axiosClassic = axios.create({
 	baseURL: `${apiUrl}`,
 })
 
-instance.interceptors.request.use(config => {
+instance.interceptors.request.use((config) => {
 	const { accessToken } = getTokens()
 	if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`
 	return config
 })
 
-instance.interceptors.request.use(config => config,
-	async error => {
+instance.interceptors.response.use(
+	(config) => config,
+	async (error) => {
 		const originalRequest = error.config
-
 		if (
 			(error.response?.status === 401 ||
 				useError(error) === 'jwt expired' ||
@@ -31,15 +32,15 @@ instance.interceptors.request.use(config => config,
 		) {
 			originalRequest._isRetry = true
 			try {
-				// await AuthService.getNewTokens()
-
+				const res = await authService.getNewTokens()
+				console.log(res)
 				return instance.request(originalRequest)
 			} catch (e) {
 				// if (useError(e) === 'jwt expired') removeTokens()
 			}
 		}
-
-		throw error
+		console.log(useError(error))
+		throw Error(error)
 	}
 )
 

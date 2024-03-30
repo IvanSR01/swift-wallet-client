@@ -1,0 +1,22 @@
+.wrapper {
+	background-color: #262250;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	padding: 0px 20px;
+	width: 100vw;
+	font-size: 30px;
+	font-weight: bold;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1240px;
+		width: 90vw;
+	}
+	h3 {
+		cursor: pointer;
+	}
+}

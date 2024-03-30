@@ -1,6 +1,9 @@
-export const useError = (error: any): string =>
-	error.response && error.response.data
-		? typeof error.response.data === 'object'
-			? error.response.data.message[0]
-			: error.response.data.message
+export const useError = (error: any): string => {
+	const message = error?.response?.data?.message
+
+	return message
+		? typeof error.response.data.message === 'object'
+			? message[0]
+			: message
 		: error.message
+}

@@ -1,0 +1,82 @@
+.wrapper {
+	display: flex;
+	// justify-content: center;
+	overflow-x: scroll;
+	scroll-behavior: smooth;
+	width: 100%;
+	.content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 100px;
+		min-width: 1000px;
+		@media (min-width: 1201px) {
+			min-width: 70vw;
+		}
+		.line {
+			color: #fff;
+		}
+	}
+}
+.wrapper {
+	scrollbar-width: none;
+}
+
+.wrapper::-webkit-scrollbar {
+	width: 0;
+}
+
+.wrapper::-webkit-scrollbar {
+	width: 0;
+	display: none;
+}
+
+.wrapper::-ms-scrollbar {
+	display: none;
+}
+
+.lineTwo {
+	// height: 350px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+
+	@media (min-width: 1201px) {
+		// min-width: 70vw;
+		height: 400px;
+	}
+	.heading {
+		text-align: center;
+		font-weight: bold;
+		font-size: 30px;
+		white-space: nowrap;
+		width: 300px;
+	}
+	.doug {
+		display: flex;
+		justify-content: center;
+		height: 350px;
+		min-width: 300px;
+		width: 100%;
+		@media (max-width: 1200px) {
+			width: 50%;
+		}
+	}
+	.arrows {
+		top: 50%;
+		position: absolute;
+		display: flex;
+		justify-content: space-between;
+		left: -10px;
+		right: -10px;
+		font-size: 20px;
+	}
+	.arrowPrev,
+	.arrowNext {
+		cursor: pointer;
+	}
+	.arrowNext {
+		transform: rotate(180deg);
+	}
+}

@@ -1,4 +1,5 @@
 import { classicRequest } from '@/api/request.api'
+import { TypeFullPost } from '@/screens/full-post/FullPost.type'
 import {
 	TypeGetPost,
 	TypePost,
@@ -32,8 +33,8 @@ class PostService {
 		})
 		return data
 	}
-	async getPostById(id: string) {
-		const { data } = await classicRequest<TypeTagsResponse>({
+	async getPostById(id: string): Promise<TypeFullPost> {
+		const { data } = await classicRequest<TypeFullPost>({
 			method: 'GET',
 			url: `/post/byId/${id}`,
 		})

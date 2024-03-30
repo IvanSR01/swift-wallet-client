@@ -19,4 +19,5 @@ export type TypeGetPost = {
 	limit?: number
 	sort?: string
 	order?: string
+	
 };

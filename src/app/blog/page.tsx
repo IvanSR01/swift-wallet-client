@@ -1,23 +1,15 @@
 'use server'
 import Blog from '@/screens/blog/Blog'
 import { TypePageBlog } from '@/screens/blog/Blog.type'
-import postService from '@/services/post-service/post.service'
-import { TypeGetPost } from '@/shared/types/post.type'
 import type { NextPage } from 'next'
+import { fetchBlogData } from '../../actions/blog.action'
 
-const fetchBlogData = async (data: TypeGetPost) => {
-	try {
-		const { tags } = await postService.getTags(15)
-		const { posts } = await postService.getPosts({
-			...data,
-		})
-		return { tags, posts }
-	} catch (error) {
-		console.log(error)
-		return { tags: [], posts: [] }
+
+export async function generateMetadata() {
+	return {
+		title: 'SwiftW | Blog',
 	}
 }
-
 const page: NextPage<TypePageBlog> = async ({ searchParams }) => {
 	const data = await fetchBlogData({
 		search: searchParams.search,
@@ -25,7 +17,7 @@ const page: NextPage<TypePageBlog> = async ({ searchParams }) => {
 		sort: searchParams.sort,
 		order: searchParams.order,
 	})
-
+	console.log(data)
 	return <Blog tags={data.tags} post={data.posts} />
 }
 export default page

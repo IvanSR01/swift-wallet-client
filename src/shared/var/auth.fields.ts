@@ -16,23 +16,24 @@ const loginFields: TypeAuthFields[] = [
     name: "login",
     required: "Поле обязательно для заполнения",
     pattern: {
-      value: /^[a-zA-Z0-9_-]{3,16}$/,
-      message: "Логин должен содержать от 3 до 16 символов",
+      value: /.*/,
+      message: "Логин должен содержать от 3 до 36 символов",
     },
     min: 3,
-    max: 16,
+    max: 36,
     placeholder: "Логин",
   },
   {
     name: "password",
     required: "Поле обязательно для заполнения",
     pattern: {
-      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+      value:  /.*/,
       message:
         "Пароль должен содержать минимум 8 символов, хотя бы одну строчную и заглавную букву и цифру",
     },
-    type: "password",
-    min: 8,
+    // type: "password",
+    // min: 4,
+		// max: 20,
     placeholder: "Пароль",
   },
 ];
